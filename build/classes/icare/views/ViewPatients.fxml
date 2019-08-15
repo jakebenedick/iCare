@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="icare.controllers.ViewPatientsController">
+  <children>
+    <Label layoutX="37.0" layoutY="22.0" text="Patients">
+      <font>
+        <Font size="24.0" />
+      </font>
+    </Label>
+    <TextField fx:id="searchField" layoutX="40.0" layoutY="76.0" onAction="#performSearch" prefHeight="25.0" prefWidth="676.0" promptText="Search patients..." />
+    <Button layoutX="725.0" layoutY="76.0" mnemonicParsing="false" onAction="#performSearch" prefHeight="25.0" prefWidth="155.0" text="Search" />
+    <ComboBox fx:id="byFnameCB" layoutX="37.0" layoutY="121.0" onAction="#applyFilter" prefHeight="25.0" prefWidth="155.0" />
+    <ComboBox fx:id="byLnameCB" layoutX="196.0" layoutY="121.0" onAction="#applyFilter" prefHeight="27.0" prefWidth="170.0" />
+    <ComboBox fx:id="byDobCB" layoutX="373.0" layoutY="121.0" onAction="#applyFilter" prefHeight="27.0" prefWidth="111.0" />
+    <ComboBox fx:id="byGenderCB" layoutX="488.0" layoutY="121.0" onAction="#applyFilter" prefHeight="27.0" prefWidth="75.0" />
+    <ComboBox fx:id="byLastVisitCB" layoutX="569.0" layoutY="121.0" onAction="#applyFilter" prefHeight="27.0" prefWidth="123.0" />
+    <ComboBox fx:id="byNextVisitCB" layoutX="696.0" layoutY="121.0" onAction="#applyFilter" prefHeight="27.0" prefWidth="123.0" />
+    <TableView fx:id="tableView" layoutX="37.0" layoutY="153.0" onMouseClicked="#userClickedTable" prefHeight="370.0" prefWidth="844.0">
+      <columns>
+        <TableColumn prefWidth="150.0" text="First name" fx:id="firstNameCol" />
+        <TableColumn prefWidth="176.0" text="Last Name" fx:id="lastNameCol" />
+        <TableColumn prefWidth="118.0" text="DoB" fx:id="dobCol" />
+        <TableColumn prefWidth="87.0" text="Gender" fx:id="genderCol" />
+        <TableColumn prefWidth="124.0" text="Last visit" fx:id="lastVisitCol" />
+        <TableColumn prefWidth="180.0" text="Next visit" fx:id="nextVisitCol" />
+      </columns>
+    </TableView>
+    <Button fx:id="backButton" layoutX="35.0" layoutY="541.0" mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="25.0" prefWidth="89.0" text="Back" />
+    <Button fx:id="viewMedicalBtn" disable="false" layoutX="201.0" layoutY="541.0" mnemonicParsing="false" onAction="#medicalBtnClicked" prefHeight="27.0" prefWidth="223.0" text="View Medical Record" />
+    <Button id="viewMedicalBtn" fx:id="immunizationsBtn" disable="false" layoutX="429.0" layoutY="541.0" mnemonicParsing="false" onAction="#immunizationsBtnClicked" prefHeight="27.0" prefWidth="223.0" text="View Immunizations" />
+    <Button layoutX="823.0" layoutY="121.0" mnemonicParsing="false" onAction="#resetBtnClicked" prefHeight="27.0" prefWidth="57.0" text="Reset" />
+    <Button id="viewMedicalBtn" fx:id="appointmentsBtn" disable="false" layoutX="658.0" layoutY="541.0" mnemonicParsing="false" onAction="#appointmentsBtnClicked" prefHeight="27.0" prefWidth="223.0" text="View Appointments" />
+  </children>
+</AnchorPane>

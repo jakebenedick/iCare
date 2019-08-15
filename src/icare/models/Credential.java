@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package icare.models;
+
+import java.io.Serializable;
 
 /**
  *
  * @author David Ortiz
  */
-class Credential {
+public class Credential implements Serializable{
     
     private String userID;
     private String password;
@@ -17,11 +14,8 @@ class Credential {
     /**
      * Default constructor for class.
      */
-    public Credential(String firstName, String lastName, String newPassword) {
-        String temp = lastName +  firstName.substring(0, 2);
-        
-                
-                
+    public Credential(String firstName, String lastName, String newPassword) 
+    {
         userID = lastName +  firstName.substring(0, 2);
         password = newPassword;
     }
@@ -32,12 +26,9 @@ class Credential {
      * @param _userID Used to compare with the Credential's ID
      * @param _password Used to compare with the Credential's password
      */
-    public boolean verifyLogin(String _userID, String _password) {
-        if(this.userID.toLowerCase().equals(_userID) && this.password.equals(_password)){
-            return true;
-        }
-        
-        return false;      
+    public boolean verifyLogin(String _userID, String _password) 
+    {
+        return this.userID.equals(_userID) && this.password.equals(_password);      
     }
     
     /**
@@ -63,5 +54,9 @@ class Credential {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+   
+    @Override
+    public String toString(){
+        return this.userID + " - " + this.password;
+    }
 }
